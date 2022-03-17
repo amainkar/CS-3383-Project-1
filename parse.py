@@ -88,4 +88,35 @@ def get_state_transitions(inp):
         if count >= 4:
             out += char
     print(out)
-    return out
+    str_list = out.split("(")
+    while("" in str_list) :
+        str_list.remove("")
+    transition_list = []
+    for i in str_list:
+        temp = i.split(",")
+        transition_list.append(temp)
+    return transition_list
+
+
+def get_computation_strings(inp):
+    stack = deque()
+    count = 0
+    out = ""
+    for char in reversed(inp):
+        if char == ")":
+            stack.append(char)
+            count += 1
+        elif char == "(":
+            stack.pop()
+        if count == 2:
+            out += char
+        if count > 2:
+            out = out[::-1]
+            out = out.replace(")", "")
+            out = out.replace("(", "")
+            computation_strings = out.split(",")
+            if computation_strings == ["", ""]:
+                return None
+            while("" in computation_strings) :
+                computation_strings.remove("")
+            return computation_strings

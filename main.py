@@ -14,7 +14,7 @@ alphabet = parse.get_alphabet(file_inp)
 states = parse.get_states(file_inp)
 start_state = parse.get_start_state(file_inp)
 end_states = parse.get_end_states(file_inp)
-
 transitions = parse.get_state_transitions(file_inp)
-
+computation_strings = parse.get_computation_strings(file_inp)
+print(transitions, computation_strings)
 print(states, start_state, end_states)
