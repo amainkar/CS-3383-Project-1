@@ -78,7 +78,6 @@ def get_state_transitions(inp):
     count = 0
     out = ""
     for char in inp:
-        print(char,end="")
         if char == "(":
             stack.append(char)
             count += 1
@@ -87,7 +86,6 @@ def get_state_transitions(inp):
             count -= 1
         if count >= 4:
             out += char
-    print(out)
     str_list = out.split("(")
     while("" in str_list) :
         str_list.remove("")
